@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For Amir (Mirabelle)</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase (optional) -->
+  <!-- Replace the firebaseConfig object in script.js (or here) with your project's values -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+  <!-- Notification Banner -->
+  <div id="notification-banner">✨ Surprise! New content added. Check the gallery, letters, poems, or hidden gems! ✨</div>
+
+  <!-- Greeting / Welcome Popup -->
+  <div id="greeting-popup" class="popup">
+    <div class="popup-content greeting-content">
+      <span class="close" onclick="closeGreeting()">&times;</span>
+      <p id="greeting-message">Hello!</p>
+    </div>
+  </div>
+
+  <!-- Hidden Gem Legend -->
+  <div id="gem-legend">
+    <p><span style="color:#FF69B4;">💖 Pink</span> - Love Note</p>
+    <p><span style="color:#00BFFF;">💙 Blue</span> - Voice Note</p>
+    <p><span style="color:#A020F0;">💜 Purple</span> - Coupon / Promise</p>
+  </div>
+
+  <!-- Header / Greeting -->
+  <header id="site-header">
+    <h1 class="title">For Amir (Mirabelle)</h1>
+    <p class="intro">“Pages of my heart, for you alone to read.”</p>
+    <p class="sub">(Mirabelle)</p>
+  </header>
+
+  <!-- Main buttons -->
+  <nav id="buttons">
+    <button onclick="showSection('letters')">💌 Letters<br><small>Pieces of my heart written for you.</small></button>
+    <button onclick="showSection('poems')">🖋️ Poem Corner<br><small>Where my thoughts find rhythm.</small></button>
+    <button onclick="openPlaylist()">🎶 Playlist<br><small>Songs that sound like us.</small></button>
+    <button class="locked">🕰️ Memory Timeline (Locked)<br><small>To be written together.</small><span class="lock">🔒</span></button>
+    <button onclick="showSection('gallery')">🖼️ Gallery<br><small>Photos & Videos</small></button>
+  </nav>
+
+  <!-- Sections -->
+  <main>
+    <section id="letters" class="section">
+      <h2>Sample Letters</h2>
+      <article class="letter">
+        <h3>Letter — Morning</h3>
+        <p>Dear Mirabelle, waking up thinking of your smile — this is a small piece of me for you.</p>
+      </article>
+      <article class="letter">
+        <h3>Letter — For Kisses</h3>
+        <p>Another sample letter goes here: small things matter, and you matter most.</p>
+      </article>
+    </section>
+
+    <section id="poems" class="section">
+      <h2>Sample Poems</h2>
+      <div class="poem">
+        <p>Roses are red, the night is kind,<br> Your laugh — the melody I always find.</p>
+      </div>
+      <div class="poem">
+        <p>Short lines for testing, but full of intent,<br> Words I keep safe, for when hearts are spent.</p>
+      </div>
+    </section>
+
+    <section id="timeline" class="section">
+      <h2>Memory Timeline</h2>
+      <p>This section is locked for now — to be written together 🕰️</p>
+    </section>
+
+    <section id="gallery" class="section">
+      <h2>Sample Gallery</h2>
+
+      <!-- Tabs -->
+      <div class="gallery-tabs">
+        <button class="tab-btn active" onclick="showGallery('all', this)">All</button>
+        <button class="tab-btn" onclick="showGallery('images', this)">Images</button>
+        <button class="tab-btn" onclick="showGallery('videos', this)">Videos</button>
+      </div>
+
+      <!-- Items -->
+      <div id="gallery-items">
+        <!-- Image items -->
+        <div class="gallery-item image-item">
+          <img src="images/sample1.jpg" alt="Sample Image 1" loading="lazy">
+          <p>Sample Image 1</p>
+        </div>
+        <div class="gallery-item image-item">
+          <img src="images/sample2.jpg" alt="Sample Image 2" loading="lazy">
+          <p>Sample Image 2</p>
+        </div>
+
+        <!-- Video items -->
+        <div class="gallery-item video-item">
+          <video controls preload="metadata">
+            <source src="videos/sample1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Sample Video 1</p>
+        </div>
+        <div class="gallery-item video-item">
+          <video controls preload="metadata">
+            <source src="videos/sample2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Sample Video 2</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    Built with love — Yours always, Najee 💙
+  </footer>
+
+  <!-- Core Script -->
+  <script src="script.js"></script>
+</body>
+</html>
