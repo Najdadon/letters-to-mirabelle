@@ -450,3 +450,28 @@ function bumpSection(section) {
     console.log('Bumped', section, contentSections[section]);
   }
 }
+
+/* Envelope open/close toggle */
+function toggleEnvelope(el) {
+  el.classList.toggle('open');
+}
+
+/* Fix gallery filter (optional) */
+function showGallery(type, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    if (type === 'all' || item.classList.contains(type + '-item')) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+/* Playlist Link */
+function openPlaylist() {
+  window.open("https://youtube.com/playlist?list=PLaJ_oeKKGN8IqqE9x6zVuAKFPGC2Bh8l3&si=FCldejexsyJR4fgO", "_blank");
+}
+
