@@ -1,3 +1,14 @@
+const TARGET_DATE = new Date('2026-02-14T00:00:00');
+const accepted = localStorage.getItem('valentineAccepted');
+
+if (!accepted) {
+  window.location.href = 'index.html';
+}
+
+if (new Date() < TARGET_DATE) {
+  window.location.href = 'countdown.html';
+}
+
 /*
   Firebase config:
   - If you set up Firebase, replace the firebaseConfig object below with your project values.
