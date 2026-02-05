@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Counting Down 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="popup" style="display:flex;">
+  <div class="popup-content" style="text-align:center;">
+    <h2>Something special is coming… 💘</h2>
+    <p id="countdown" style="font-size:1.3rem; margin-top:12px;"></p>
+  </div>
+</div>
+
+<script>
+const TARGET_DATE = new Date('2026-02-14T00:00:00');
+
+function updateCountdown() {
+  const now = new Date();
+  const diff = TARGET_DATE - now;
+
+  if (diff <= 0) {
+    window.location.href = 'main.html';
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById('countdown').innerText =
+    `${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+
+</body>
+</html>
