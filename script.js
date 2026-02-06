@@ -1,13 +1,19 @@
 const TARGET_DATE = new Date('2026-02-14T00:00:00');
 const accepted = localStorage.getItem('valentineAccepted');
+const path = window.location.pathname;
 
-if (!accepted) {
+if (!accepted && !path.includes('index.html')) {
   window.location.href = 'index.html';
 }
 
-if (new Date() < TARGET_DATE) {
+if (
+  accepted &&
+  new Date() < TARGET_DATE &&
+  path.includes('main.html')
+) {
   window.location.href = 'countdown.html';
 }
+
 const DAILY_TEXT = {
   '2026-02-09': {
     countdown: "I have something planned for you this week. Just… trust me 💙",
