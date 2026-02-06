@@ -40,6 +40,16 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 </script>
+  
+<script>
+const todayKey = new Date().toISOString().split('T')[0];
+const daily = DAILY_TEXT[todayKey];
+
+if (daily) {
+  document.getElementById('daily-message').innerText = daily.countdown;
+}
+</script>
+  
 
 </body>
 </html>
