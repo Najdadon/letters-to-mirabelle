@@ -37,6 +37,14 @@ const DAILY_TEXT = {
   }
 };
 
+const todayKey = new Date().toISOString().split('T')[0];
+const daily = DAILY_TEXT[todayKey];
+
+const hintEl = document.getElementById('locked-hint');
+if (daily && hintEl) {
+  hintEl.innerText = daily.lockedHint;
+}
+
 
 /*
   Firebase config:
