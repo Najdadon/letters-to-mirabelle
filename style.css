@@ -59,6 +59,14 @@ body {
 /* Gem legend */
 #gem-legend { position: fixed; top: 18px; right: 18px; background: rgba(0,0,0,0.5); padding:10px; border-radius:10px; z-index:60; }
 
+/* Locked hint legend */
+.locked-hint {
+  font-style: italic;
+  opacity: 0.75;
+  margin-top: 8px;
+  color: #D8BFD8;
+}
+
 /* Hidden gems */
 .hidden-gem {
   font-size: 2rem;
