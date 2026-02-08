@@ -1,23 +1,23 @@
-const DEV_MODE = true; // <-- set to false before Sunday deploy
-const TARGET_DATE = new Date('2026-02-14T00:00:00');
-const accepted = localStorage.getItem('valentineAccepted');
-const path = window.location.pathname;
+//const DEV_MODE = false; // <-- set to false before Sunday deploy
+//const TARGET_DATE = new Date('2026-02-14T00:00:00');
+//const accepted = localStorage.getItem('valentineAccepted');
+//const path = window.location.pathname;
 
-if (!DEV_MODE) {
-  if (!accepted && !path.includes('index.html')) {
-    window.location.href = 'index.html';
-  }
+//if (!DEV_MODE) {
+//  if (!accepted && !path.includes('index.html')) {
+//    window.location.href = 'index.html';
+//  }
 
-  if (
-    accepted &&
-    new Date() < TARGET_DATE &&
-    path.includes('main.html')
-  ) {
-    window.location.href = 'countdown.html';
-  }
+//  if (
+ //   accepted &&
+//    new Date() < TARGET_DATE &&
+ //   path.includes('main.html')
+ // ) {
+ //   window.location.href = 'countdown.html';
+//  }
 }
 
-const DAILY_TEXT = {
+//const DAILY_TEXT = {
   '2026-02-09': {
     countdown: "I have something planned for you this week. Just… trust me 💙",
     lockedHint: "Something is beginning."
@@ -38,14 +38,14 @@ const DAILY_TEXT = {
     countdown: "Tomorrow, I stop holding back.",
     lockedHint: "One more sleep."
   }
-};
+//};
 
-const todayKey = new Date().toISOString().split('T')[0];
-const daily = DAILY_TEXT[todayKey];
+//const todayKey = new Date().toISOString().split('T')[0];
+//const daily = DAILY_TEXT[todayKey];
 
-const hintEl = document.getElementById('locked-hint');
-if (daily && hintEl) {
-  hintEl.innerText = daily.lockedHint;
+//const hintEl = document.getElementById('locked-hint');
+//if (daily && hintEl) {
+//  hintEl.innerText = daily.lockedHint;
 }
 
 
