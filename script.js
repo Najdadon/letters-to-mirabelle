@@ -1,3 +1,5 @@
+console.log("SCRIPT LOADED");
+
 //const DEV_MODE = false; // <-- set to false before Sunday deploy
 //const TARGET_DATE = new Date('2026-02-14T00:00:00');
 //const accepted = localStorage.getItem('valentineAccepted');
@@ -15,29 +17,29 @@
  // ) {
  //   window.location.href = 'countdown.html';
 //  }
-}
+//}
 
 //const DAILY_TEXT = {
-  '2026-02-09': {
-    countdown: "I have something planned for you this week. Just… trust me 💙",
-    lockedHint: "Something is beginning."
-  },
-  '2026-02-10': {
-    countdown: "I keep thinking about you more than I probably should.",
-    lockedHint: "This is getting personal."
-  },
-  '2026-02-11': {
-    countdown: "There’s a reason I wanted to do this slowly.",
-    lockedHint: "Halfway there."
-  },
-  '2026-02-12': {
-    countdown: "You don’t even know how much I’m looking forward to Saturday.",
-    lockedHint: "Almost time."
-  },
-  '2026-02-13': {
-    countdown: "Tomorrow, I stop holding back.",
-    lockedHint: "One more sleep."
-  }
+  //'2026-02-09': {
+ //   countdown: "I have something planned for you this week. Just… trust me 💙",
+  //  lockedHint: "Something is beginning."
+//  },
+//  '2026-02-10': {
+ //   countdown: "I keep thinking about you more than I probably should.",
+  //  lockedHint: "This is getting personal." 
+//  },
+ // '2026-02-11': {
+  //  countdown: "There’s a reason I wanted to do this slowly.",
+   // lockedHint: "Halfway there."
+//  },
+//  '2026-02-12': {
+  //  countdown: "You don’t even know how much I’m looking forward to Saturday.",
+ //   lockedHint: "Almost time."
+ // },
+ // '2026-02-13': {
+  //  countdown: "Tomorrow, I stop holding back.",
+  //  lockedHint: "One more sleep."
+  //}
 //};
 
 //const todayKey = new Date().toISOString().split('T')[0];
