@@ -1,4 +1,4 @@
-console.log("SCRIPT LOADED OK");
+console.log("SCRIPT LOADED JUST");
 
 //const DEV_MODE = false; // <-- set to false before Sunday deploy
 //const TARGET_DATE = new Date('2026-02-14T00:00:00');
@@ -478,4 +478,3 @@ function showGallery(type, btn) {
 function openPlaylist() {
   window.open("https://youtube.com/playlist?list=PLaJ_oeKKGN8IqqE9x6zVuAKFPGC2Bh8l3&si=FCldejexsyJR4fgO", "_blank");
 }
-
