@@ -48,7 +48,7 @@ console.log("SCRIPT LOADED");
 //const hintEl = document.getElementById('locked-hint');
 //if (daily && hintEl) {
 //  hintEl.innerText = daily.lockedHint;
-}
+//}
 
 
 /*
