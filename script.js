@@ -1,4 +1,4 @@
-console.log("SCRIPT LOADED");
+console.log("SCRIPT LOADED OK");
 
 //const DEV_MODE = false; // <-- set to false before Sunday deploy
 //const TARGET_DATE = new Date('2026-02-14T00:00:00');
