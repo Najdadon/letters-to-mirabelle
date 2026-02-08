@@ -65,8 +65,6 @@ const firebaseConfig = {
 };
 */
 
-/* Secret token for Mirabelle (use ?key=mirabelle in the URL) */
-const PRIMARY_TOKEN = "mirabelle";
 
 /* Content versioning -- bump a section value when you add content so the banner notifies her */
 const contentSections = {
@@ -172,27 +170,18 @@ if (firebaseConfig) {
 function qs(sel) { return document.querySelector(sel); }
 function qsa(sel) { return Array.from(document.querySelectorAll(sel)); }
 
-function getUrlToken() {
-  try {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('key');
-  } catch (e) {
-    return null;
-  }
 }
 
 /* ---------------------------
    Visitor detection & logging (Firestore)
    --------------------------- */
-const urlToken = getUrlToken();
-const visitorIsPrimary = urlToken === PRIMARY_TOKEN;
-const visitorLabel = visitorIsPrimary ? 'Mirabelle' : 'Other';
+
 
 function logVisit() {
   // create a basic device info string
   const deviceInfo = navigator.userAgent || 'unknown';
   const record = {
-    type: visitorLabel,
+  type: 'visitor',
     device: deviceInfo,
     timestamp: new Date().toISOString()
   };
@@ -317,8 +306,7 @@ function openPlaylist() {
    Hidden Gems generator (random colored, non-repeating)
    --------------------------- */
 function createHiddenGems() {
-  // Only primary visitor (Mirabelle) sees interactive gems
-  if (!visitorIsPrimary) return;
+ 
 
   // Load used items to avoid repeats across sessions (optionally persist)
   let used = JSON.parse(localStorage.getItem('usedGems') || '[]');
@@ -454,7 +442,7 @@ function createHiddenGems() {
           type: g.type,
           content: g.content,
           timestamp: new Date().toISOString(),
-          actor: visitorLabel
+          actor: 'visitor'
         }).catch(err => console.warn('Gem log error', err));
       }
     });
