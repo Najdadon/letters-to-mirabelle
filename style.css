@@ -115,51 +115,95 @@ footer { text-align:center; padding:30px 10px; color:#D8BFD8; opacity:0.9; margi
 }
 
 /* Envelope Animation */
+/* Envelope container */
 .envelope {
   position: relative;
   width: 320px;
-  height: 200px;
-  background: linear-gradient(145deg, #4b0082, #2c003e);
-  margin: 40px auto;
-  border-radius: 10px;
-  perspective: 800px;
+  height: 210px;
+  margin: 50px auto;
   cursor: pointer;
-  box-shadow: 0 0 20px rgba(160,32,240,0.4);
-  transition: transform 0.8s ease;
+  perspective: 1000px;
 }
 
-.envelope-flap {
+/* Back of envelope */
+.env-back {
+  position: absolute;
+  inset: 0;
+  background: #3a005f;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+/* Side folds */
+.env-left,
+.env-right {
   position: absolute;
   top: 0;
+  width: 50%;
+  height: 100%;
+  background: #4b0082;
+  z-index: 2;
+}
+
+.env-left {
   left: 0;
-  width: 100%;
-  height: 50%;
-  background: linear-gradient(145deg, #5e2a9e, #2c003e);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  transform-origin: top;
-  transition: transform 0.8s ease;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
-.envelope.open .envelope-flap {
-  transform: rotateX(180deg);
+.env-right {
+  right: 0;
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
 }
 
-.letter-content {
+/* Bottom fold */
+.env-bottom {
   position: absolute;
-  top: 20%;
+  bottom: 0;
+  width: 100%;
+  height: 60%;
+  background: #5a189a;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  z-index: 3;
+}
+
+/* Top flap */
+.env-flap {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 55%;
+  background: #6a1bbd;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  transform-origin: top;
+  transition: transform 0.9s ease;
+  z-index: 5;
+}
+
+/* Letter */
+.letter {
+  position: absolute;
   left: 10%;
   right: 10%;
   bottom: 10%;
-  background: rgba(255,255,255,0.05);
+  height: 80%;
+  background: #111;
   border-radius: 8px;
   padding: 16px;
+  color: #fff;
+  z-index: 4;
+  transform: translateY(40%);
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: transform 0.9s ease, opacity 0.6s ease;
+  overflow-y: auto;
 }
 
-.envelope.open .letter-content {
-  opacity: 1;
-  transform: translateY(0);
+/* Open state */
+.envelope.open .env-flap {
+  transform: rotateX(180deg);
 }
+
+.envelope.open .letter {
+  transform: translateY(-10%);
+  opacity: 1;
+}
+
