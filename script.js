@@ -51,22 +51,6 @@ console.log("SCRIPT LOADED OK");
 //}
 
 
-/*
-  Firebase config:
-  - If you set up Firebase, replace the firebaseConfig object below with your project values.
-  - If you don't want Firebase yet, leave firebaseConfig = null (code will skip logging).
-*/
-/*
-const firebaseConfig = {
-  apiKey: "AIzaSyDNdn7j1vRc-mLJoWkjXgHfr_woQI6isvA",
-  authDomain: "mirabelle-9542d.firebaseapp.com",
-  projectId: "mirabelle-9542d",
-  storageBucket: "mirabelle-9542d.firebasestorage.app",
-  messagingSenderId: "634650408021",
-  appId: "1:634650408021:web:6aeb5bdcc9a97624d9d0dc"
-};
-*/
-
 
 /* Content versioning -- bump a section value when you add content so the banner notifies her */
 const contentSections = {
@@ -151,20 +135,6 @@ const GEMS_PER_VISIT = 4;
    END CONFIG
    --------------------------- */
 
-
-/* ---------------------------
-   Initialize Firebase (if provided)
-   --------------------------- */
-/*let db = null;
-if (firebaseConfig) {
-  try {
-    firebase.initializeApp(firebaseConfig);
-    db = firebase.firestore();
-    console.log('Firebase initialized.');
-  } catch (e) {
-    console.warn('Firebase init failed:', e);
-  }
-}/
 
 /* ---------------------------
    Utility helpers
