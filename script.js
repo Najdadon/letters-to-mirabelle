@@ -155,7 +155,7 @@ const GEMS_PER_VISIT = 4;
 /* ---------------------------
    Initialize Firebase (if provided)
    --------------------------- */
-let db = null;
+/*let db = null;
 if (firebaseConfig) {
   try {
     firebase.initializeApp(firebaseConfig);
@@ -164,7 +164,7 @@ if (firebaseConfig) {
   } catch (e) {
     console.warn('Firebase init failed:', e);
   }
-}
+}/
 
 /* ---------------------------
    Utility helpers
