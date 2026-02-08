@@ -1,6 +1,16 @@
 const TARGET_DATE = new Date('2026-02-14T00:00:00');
 const accepted = localStorage.getItem('valentineAccepted');
 const path = window.location.pathname;
+const DEV_MODE = true; // <-- set to false before Sunday deploy
+
+if (
+  !DEV_MODE &&
+  accepted &&
+  new Date() < TARGET_DATE &&
+  path.includes('main.html')
+) {
+  window.location.href = 'countdown.html';
+}
 
 if (!accepted && !path.includes('index.html')) {
   window.location.href = 'index.html';
