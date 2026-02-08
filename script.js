@@ -159,11 +159,6 @@ function logVisit() {
   // local log for quick debug
   console.log('Visit log:', record);
 
-  // Firestore log (if configured)
-  if (db) {
-    db.collection('visits').add(record).catch(err => console.warn('Visit log error:', err));
-  }
-}
 
 /* ---------------------------
    Notification banner logic (section versioning)
