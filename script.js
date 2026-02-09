@@ -157,7 +157,8 @@ function logVisit() {
   };
 
   // local log for quick debug
-  console.log('Visit log:', record); }
+  console.log('Visit log:', record); 
+}
 
 
 /* ---------------------------
