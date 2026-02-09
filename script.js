@@ -454,19 +454,6 @@ function toggleEnvelope(el) {
   el.classList.toggle('open');
 }
 
-/* Fix gallery filter (optional) */
-function showGallery(type, btn) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-
-  document.querySelectorAll('.gallery-item').forEach(item => {
-    if (type === 'all' || item.classList.contains(type + '-item')) {
-      item.style.display = 'block';
-    } else {
-      item.style.display = 'none';
-    }
-  });
-}
 
 /* Playlist Link */
 function openPlaylist() {
