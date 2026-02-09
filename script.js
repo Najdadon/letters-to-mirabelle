@@ -4,8 +4,8 @@ const accepted = localStorage.getItem('valentineAccepted');
 const path = window.location.pathname;
 
 if (!DEV_MODE) {
-  if (!accepted && !path.includes('index.html')) {
-    window.location.href = 'index.html';
+ if (!accepted && !path.endsWith('/') && !path.includes('index.html')) {
+  window.location.href = 'index.html';
 }
 
  if (
@@ -40,7 +40,7 @@ const DAILY_TEXT = {
   }
 };
 
-const todayKey = new Date().toISOString().split('T')[0];
+const todayKey = new Date().toLocaleDateString('en-CA');
 const daily = DAILY_TEXT[todayKey];
 
 const hintEl = document.getElementById('locked-hint');
@@ -127,7 +127,7 @@ const gemPools = [
 ];
 
 /* Number of gems to create each visit (adjustable) */
-const GEMS_PER_VISIT = 4;
+const GEMS_PER_VISIT = 1;
 
 /* ---------------------------
    END CONFIG
@@ -270,23 +270,6 @@ function openPlaylist() {
    Hidden Gems generator (random colored, non-repeating)
    --------------------------- */
 function createHiddenGems() {
-  function spawnGemsOverTime() {
-  let spawned = 0;
-
-  function spawnNext() {
-    if (spawned >= GEMS_PER_VISIT) return;
-
-    createHiddenGems();
-    spawned++;
-
-    // random delay between 4–10 seconds
-    const delay = 4000 + Math.random() * 6000;
-    setTimeout(spawnNext, delay);
-  }
-
-  spawnNext();
-}
-
  
   // Load used items to avoid repeats across sessions (optionally persist)
   let used = JSON.parse(localStorage.getItem('usedGems') || '[]');
@@ -430,6 +413,24 @@ function createHiddenGems() {
     });
   });
 }
+
+function spawnGemsOverTime() {
+  let spawned = 0;
+
+  function spawnNext() {
+    if (spawned >= GEMS_PER_VISIT) return;
+
+    createHiddenGems();
+    spawned++;
+
+    // random delay between 4–10 seconds
+    const delay = 4000 + Math.random() * 6000;
+    setTimeout(spawnNext, delay);
+  }
+
+  spawnNext();
+}
+
 
 /* ---------------------------
    Boot sequence
