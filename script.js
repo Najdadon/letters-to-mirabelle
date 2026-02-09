@@ -1,54 +1,52 @@
-console.log("SCRIPT LOADED JUST");
+const DEV_MODE = false; // <-- set to false before Sunday deploy
+const TARGET_DATE = new Date('2026-02-14T00:00:00');
+const accepted = localStorage.getItem('valentineAccepted');
+const path = window.location.pathname;
 
-//const DEV_MODE = false; // <-- set to false before Sunday deploy
-//const TARGET_DATE = new Date('2026-02-14T00:00:00');
-//const accepted = localStorage.getItem('valentineAccepted');
-//const path = window.location.pathname;
+if (!DEV_MODE) {
+  if (!accepted && !path.includes('index.html')) {
+    window.location.href = 'index.html';
+}
 
-//if (!DEV_MODE) {
-//  if (!accepted && !path.includes('index.html')) {
-//    window.location.href = 'index.html';
-//  }
+ if (
+    accepted &&
+    new Date() < TARGET_DATE &&
+    path.includes('main.html')
+ ) {
+   window.location.href = 'countdown.html';
+  }
+}
 
-//  if (
- //   accepted &&
-//    new Date() < TARGET_DATE &&
- //   path.includes('main.html')
- // ) {
- //   window.location.href = 'countdown.html';
-//  }
-//}
+const DAILY_TEXT = {
+  '2026-02-09': {
+  countdown: "I have something planned for you this week. Just… trust me 💙",
+  lockedHint: "Something is beginning."
+  },
+  '2026-02-10': {
+   countdown: "I keep thinking about you more than I probably should.",
+   lockedHint: "This is getting personal." 
+  },
+ '2026-02-11': {
+  countdown: "There’s a reason I wanted to do this slowly.",
+   lockedHint: "Halfway there."
+  },
+  '2026-02-12': {
+   countdown: "You don’t even know how much I’m looking forward to Saturday.",
+    lockedHint: "Almost time."
+  },
+  '2026-02-13': {
+    countdown: "Tomorrow, I stop holding back.",
+    lockedHint: "One more sleep."
+  }
+};
 
-//const DAILY_TEXT = {
-  //'2026-02-09': {
- //   countdown: "I have something planned for you this week. Just… trust me 💙",
-  //  lockedHint: "Something is beginning."
-//  },
-//  '2026-02-10': {
- //   countdown: "I keep thinking about you more than I probably should.",
-  //  lockedHint: "This is getting personal." 
-//  },
- // '2026-02-11': {
-  //  countdown: "There’s a reason I wanted to do this slowly.",
-   // lockedHint: "Halfway there."
-//  },
-//  '2026-02-12': {
-  //  countdown: "You don’t even know how much I’m looking forward to Saturday.",
- //   lockedHint: "Almost time."
- // },
- // '2026-02-13': {
-  //  countdown: "Tomorrow, I stop holding back.",
-  //  lockedHint: "One more sleep."
-  //}
-//};
+const todayKey = new Date().toISOString().split('T')[0];
+const daily = DAILY_TEXT[todayKey];
 
-//const todayKey = new Date().toISOString().split('T')[0];
-//const daily = DAILY_TEXT[todayKey];
-
-//const hintEl = document.getElementById('locked-hint');
-//if (daily && hintEl) {
-//  hintEl.innerText = daily.lockedHint;
-//}
+const hintEl = document.getElementById('locked-hint');
+if (daily && hintEl) {
+  hintEl.innerText = daily.lockedHint;
+}
 
 
 
