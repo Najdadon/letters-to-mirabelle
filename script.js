@@ -272,8 +272,24 @@ function openPlaylist() {
    Hidden Gems generator (random colored, non-repeating)
    --------------------------- */
 function createHiddenGems() {
- 
+  function spawnGemsOverTime() {
+  let spawned = 0;
 
+  function spawnNext() {
+    if (spawned >= GEMS_PER_VISIT) return;
+
+    createHiddenGems();
+    spawned++;
+
+    // random delay between 4–10 seconds
+    const delay = 4000 + Math.random() * 6000;
+    setTimeout(spawnNext, delay);
+  }
+
+  spawnNext();
+}
+
+ 
   // Load used items to avoid repeats across sessions (optionally persist)
   let used = JSON.parse(localStorage.getItem('usedGems') || '[]');
 
@@ -301,9 +317,17 @@ function createHiddenGems() {
     localStorage.setItem('usedGems', JSON.stringify(used));
 
     // create gem element
-    const gemEl = document.createElement('div');
-    gemEl.className = 'hidden-gem';
-    gemEl.innerText = '✨';
+   const gemEl = document.createElement('div');
+   gemEl.className = 'hidden-gem';
+
+   const gemIcons = {
+     note: '💖',
+     audio: '💙',
+     coupon: '💜'
+   };
+
+   gemEl.innerText = gemIcons[gemType.type];
+
     gemEl.style.position = 'fixed';
     // random-ish positions (avoid edges)
     gemEl.style.top = (10 + Math.random() * 70) + '%';
@@ -426,7 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // showSection('letters'); // optional default
 
   // Create hidden gems randomly for primary visitor
-  createHiddenGems();
+  spawnGemsOverTime();
 
   // Gallery tabs: set event to default 'all' active (first tab)
   // If the page uses statically added tabs, ensure first is active
