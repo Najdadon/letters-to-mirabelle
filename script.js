@@ -157,7 +157,7 @@ function logVisit() {
   };
 
   // local log for quick debug
-  console.log('Visit log:', record);
+  console.log('Visit log:', record); }
 
 
 /* ---------------------------
@@ -402,14 +402,8 @@ function createHiddenGems() {
       // show popup
       popup.style.display = 'flex';
       // optional: log that a hidden gem was opened (firestore)
-      if (db) {
-        db.collection('gemEvents').add({
-          type: g.type,
-          content: g.content,
-          timestamp: new Date().toISOString(),
-          actor: 'visitor'
-        }).catch(err => console.warn('Gem log error', err));
-      }
+    
+     
     });
   });
 }
